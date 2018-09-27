@@ -1,0 +1,13 @@
+version: '2'
+services:
+  docker_compose_ui:
+    image: microsoft/mssql-server-linux-preview:latest
+    build: .
+    restart: always
+    ports:
+    - 1433:1433
+    volumes:
+    - ./mssql/:/var/opt/mssql/
+    environment:
+    - ACCEPT_EULA=Y
+    - SA_PASSWORD=123456
